@@ -1,0 +1,219 @@
+/* Out West Septic quote form styles. */
+
+:root {
+  --bg: #f6f1e6;
+  --bg-card: #fbf6ec;
+  --ink: #1f1a14;
+  --ink-muted: #5b5142;
+  --rule: #d8cdb6;
+  --brand: #8b2e2e;
+  --brand-ink: #5a1d1d;
+  --brand-bg: #f4e9d8;
+  --accent: #c98a3a;
+  --error: #b14242;
+  --ok: #2d6a4f;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.55 Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+a { color: var(--brand-ink); }
+a:hover { color: var(--brand); }
+
+/* Header */
+
+.site-header {
+  background: var(--brand);
+  color: var(--brand-bg);
+  padding: 0.75rem 0;
+  border-bottom: 4px solid var(--brand-ink);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--brand-bg);
+  color: var(--brand-ink);
+  font-weight: 700;
+  font-size: 1.15rem;
+  border-radius: 4px;
+  font-family: Georgia, serif;
+}
+
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-text strong { font-size: 1.1rem; }
+.brand-sub { font-size: 0.78rem; opacity: 0.85; }
+
+.header-cta a.phone {
+  color: var(--brand-bg);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--brand-bg);
+  border-radius: 3px;
+}
+
+/* Hero */
+
+.hero { padding: 2rem 0 1rem; }
+.hero h1 { font-size: 2rem; margin: 0 0 0.5rem; }
+.lede { font-size: 1.05rem; color: var(--ink-muted); margin: 0.5rem 0; }
+.faint { color: var(--ink-muted); }
+.small { font-size: 0.85rem; }
+
+/* Form */
+
+.form-section { padding: 1rem 0 2rem; }
+
+form fieldset {
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1rem 1.25rem 1.25rem;
+  margin: 0 0 1.25rem;
+  background: var(--bg-card);
+}
+
+form legend {
+  font-weight: 700;
+  padding: 0 0.5rem;
+  color: var(--brand-ink);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.field { display: block; margin: 0.75rem 0; }
+
+.field label, .label-like {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.optional { font-weight: 400; color: var(--ink-muted); font-size: 0.85rem; }
+
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: #fff;
+  font: inherit;
+  color: var(--ink);
+}
+
+.field textarea { resize: vertical; min-height: 80px; }
+
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+@media (max-width: 540px) {
+  .row { grid-template-columns: 1fr; }
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.4rem 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.check input { width: auto; }
+
+.actions {
+  margin: 1.25rem 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+button.primary {
+  background: var(--brand);
+  color: var(--brand-bg);
+  border: 1px solid var(--brand-ink);
+  padding: 0.7rem 1.4rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.primary:hover { background: var(--brand-ink); }
+button.primary:disabled { opacity: 0.6; cursor: wait; }
+
+.status {
+  margin-top: 0.75rem;
+  padding: 0;
+  min-height: 1.5em;
+  font-weight: 600;
+}
+.status.ok { color: var(--ok); }
+.status.err { color: var(--error); }
+
+/* Footer info */
+
+.footer-info { padding: 1rem 0 2rem; }
+.footer-info h2 { font-size: 1.25rem; }
+.footer-info ol { padding-left: 1.25rem; }
+.footer-info p { color: var(--ink-muted); }
+
+/* Site footer */
+
+.site-footer {
+  background: var(--brand-ink);
+  color: var(--brand-bg);
+  padding: 1.25rem 0;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.site-footer a { color: var(--brand-bg); }
